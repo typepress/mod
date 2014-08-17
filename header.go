@@ -17,8 +17,8 @@ SetCacheControl 以扩展名设置 Cache-Control 头
 */
 func SetCacheControl(cc map[string]string) Finish {
 
-	return Finish(func(rw http.ResponseWriter,
-		req *http.Request) bool {
+	return Finish(func(
+		rw http.ResponseWriter, req *http.Request) bool {
 
 		s, ok := cc[path.Ext(req.URL.Path)]
 		if ok {

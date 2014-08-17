@@ -3,7 +3,7 @@ mod
 
 HTTP Helper modules.
 
-mod 处于开发期, 不适合在正式项目中采用.
+mod 处于开发期, 正式项目慎用.
 
 风格
 ====
@@ -26,14 +26,16 @@ type Interface interface {
 
 ServeHTTP 参数风格:
 ```go
-ServeHTTP(v1 Type,vN TypeN, http.ResponseWriter, *http.Request) bool
-```
-
+/**
 参数:
-    最后两个参数类型是 `http.ResponseWriter`, `*http.Request`, 之前的参数无限制.
+    最后两个参数类型是 `http.ResponseWriter`, `*http.Request`.
+    之前的参数无限制.
 返回:
     true  表示请求已完成, 应该停止响应
     false 表示请求未完成, 可以继续响应.
+*/
+ServeHTTP(v1 Type, vN TypeN, http.ResponseWriter, *http.Request) bool
+```
 
 
 LICENSE
